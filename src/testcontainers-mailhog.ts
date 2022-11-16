@@ -1,13 +1,14 @@
+import axios from 'axios'
 import { GenericContainer, StartedTestContainer } from 'testcontainers'
 import { AbstractStartedContainer } from 'testcontainers/dist/modules/abstract-started-container'
 import { LogWaitStrategy } from 'testcontainers/dist/wait-strategy'
+
 import { Message } from './types'
-import axios from 'axios'
 
 export class MailhogContainer extends GenericContainer {
   private waitingLog = 'Creating API v2 with WebPath:'
 
-  constructor(image: string = 'mailhog/mailhog:v1.0.1') {
+  constructor(image = 'mailhog/mailhog:v1.0.1') {
     super(image)
   }
 

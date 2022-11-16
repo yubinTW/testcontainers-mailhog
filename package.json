@@ -6,7 +6,8 @@
   "scripts": {
     "test": "vitest run --coverage",
     "build": "tsc",
-    "fix-prettier": "prettier --write \"./{src,test}/**/*.ts\""
+    "fix-prettier": "prettier --write \"./{src,test}/**/*.ts\"",
+    "check-lint": "eslint --color package.json \"src/**/*.ts\""
   },
   "keywords": [
     "testcontainers",
@@ -30,8 +31,11 @@
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/nodemailer": "^6.4.6",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
     "@vitest/coverage-c8": "^0.25.2",
     "eslint": "^8.27.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
     "nodemailer": "^6.8.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4",
