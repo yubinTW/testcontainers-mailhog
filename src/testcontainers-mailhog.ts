@@ -1,6 +1,7 @@
 import { GenericContainer, StartedTestContainer } from 'testcontainers'
 import { AbstractStartedContainer } from 'testcontainers/dist/modules/abstract-started-container'
 import { LogWaitStrategy } from 'testcontainers/dist/wait-strategy'
+import { Message } from './types'
 import axios from 'axios'
 
 export class MailhogContainer extends GenericContainer {
@@ -27,6 +28,10 @@ export class StartedMailhogContainer extends AbstractStartedContainer {
 
   public async getAllMessages(): Promise<Array<Message>> {
     return (await axios.get(`http://${this.getHost()}:${this.getMappedPort(8025)}/api/v1/messages`)).data
+  }
+
+  public async getMessage(messageId: string) {
+    return (await axios.get(`http://${this.getHost()}:${this.getMappedPort(8025)}/api/v1/messages/${messageId}`)).data
   }
 
   public deleteAllMessages() {

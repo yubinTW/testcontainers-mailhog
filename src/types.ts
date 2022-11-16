@@ -1,4 +1,4 @@
-type Message = {
+export type Message = {
   ID: string
   From: {
     Relays: unknown
@@ -41,7 +41,7 @@ type Message = {
   }
 }
 
-type NodemailerResponse = {
+export type NodemailerResponse = {
   accepted: Array<string>
   rejected: Array<string>
   envelopeTime: number
