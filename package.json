@@ -1,6 +1,6 @@
 {
   "name": "testcontainers-mailhog",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Testcontainers implementation for Mailhog",
   "main": "dist/testcontainers-mailhog",
   "scripts": {
