@@ -1,14 +1,14 @@
 export type Message = {
   ID: string
   From: {
-    Relays: unknown
+    Relays: Array<string>
     Mailbox: string
     Domain: string
     Params: string
   }
   To: [
     {
-      Relays: unknown
+      Relays: Array<string>
       Mailbox: string
       Domain: string
       Params: string
