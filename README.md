@@ -32,6 +32,7 @@ npm i -D testcontainers-mailhog
 - `.getAllMessages()` Lists all messages excluding message content
 - `.getMessage(messageId)` Returns an individual message including message content
 - `.deleteAllMessages()` Deletes all messages
+- `.deleteMessage(messageId)` Delete an individual message
 - `.getMappedSmtpPort()` Get mapped smtp port, for configure smtp client
 - `.getMappedApiPort()` Get mapped api port, if u want to invoke api manually
 
@@ -45,7 +46,7 @@ import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest'
 import {
   MailhogContainer,
   StartedMailhogContainer
-} from '../src/testcontainers-mailhog'
+} from 'testcontainers-mailhog'
 
 describe('Mailing test', () => {
   let mailhogContainer: StartedMailhogContainer

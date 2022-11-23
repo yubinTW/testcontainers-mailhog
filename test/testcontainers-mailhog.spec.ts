@@ -71,4 +71,19 @@ describe('Testcontainers-Mailhog test', () => {
     expect(message.ID).toBe(messageId)
     expect(message.Content.Body).toBe('<h1>Hello World</h1>')
   })
+
+  test('.deleteMessage method', async () => {
+    const sendResponse: NodemailerResponse = await transporter.sendMail({
+      from: 'sender001@example.com',
+      to: 'receiver001@example.com',
+      subject: 'subject001',
+      html: '<h1>Hello World</h1>'
+    })
+    const messageId = sendResponse.response.split('as ')[1]
+
+    await mailhogContainer.deleteMessage(messageId)
+
+    const messages = await mailhogContainer.getAllMessages()
+    expect(messages).toHaveLength(0)
+  })
 })
