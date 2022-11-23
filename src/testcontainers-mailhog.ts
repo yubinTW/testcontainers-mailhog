@@ -70,6 +70,10 @@ export class StartedMailhogContainer extends AbstractStartedContainer {
     return axios.delete(`http://${this.getHost()}:${this.mappedApiPort}/api/v1/messages`)
   }
 
+  public async deleteMessage(messageId: string) {
+    return axios.delete(`http://${this.getHost()}:${this.mappedApiPort}/api/v1/messages/${messageId}`)
+  }
+
   public getMappedSmtpPort() {
     return this.mappedSmtpPort
   }
